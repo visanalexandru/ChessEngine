@@ -7,6 +7,7 @@
 
 #include "Board.h"
 #include "../Piece/Pawn.h"
+#include "../Piece/Knight.h"
 #include <vector>
 
 namespace Chess {

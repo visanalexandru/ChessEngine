@@ -20,6 +20,23 @@ namespace Chess {
             pieces.push_back(pawn);
         }
 
+        Knight *black_knight1 = new Knight(Vector2(1, 0), PieceColor::black);
+        gameboard.SetPieceAt(Vector2(1, 0), black_knight1);
+        pieces.push_back(black_knight1);
+
+
+        Knight *black_knight2 = new Knight(Vector2(6, 0), PieceColor::black);
+        gameboard.SetPieceAt(Vector2(6, 0), black_knight1);
+        pieces.push_back(black_knight2);
+
+        Knight *white_knight1 = new Knight(Vector2(1, 7), PieceColor::white);
+        gameboard.SetPieceAt(Vector2(1, 7), white_knight1);
+        pieces.push_back(white_knight1);
+
+        Knight *white_knight2 = new Knight(Vector2(6, 7), PieceColor::white);
+        gameboard.SetPieceAt(Vector2(6, 7), white_knight2);
+        pieces.push_back(white_knight2);
+
     }
 
     Game::Game() {

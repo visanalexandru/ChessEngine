@@ -5,7 +5,7 @@
 int main() {
     Chess::Game game;
     GUI gui(500);
-    Chess::Piece *controlling = game.GetBoard().GetPieceAt(Vector2(0, 1));
+    Chess::Piece *controlling = game.GetBoard().GetPieceAt(Vector2(1, 0));
 
 
     while (gui.IsWindowOppened()) {

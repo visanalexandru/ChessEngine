@@ -13,13 +13,13 @@ public:
 
     Vector2(int xpos, int ypos);
 
-    bool operator==(const Vector2 &other);
+    bool operator==(const Vector2 &other) const;
 
-    bool operator!=(const Vector2 &other);
+    bool operator!=(const Vector2 &other) const;
 
-    Vector2 operator-(const Vector2 &other);
+    Vector2 operator-(const Vector2 &other) const;
 
-    Vector2 operator+(const Vector2 &other);
+    Vector2 operator+(const Vector2 &other) const;
 
 };
 
