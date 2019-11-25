@@ -29,8 +29,6 @@ namespace Chess {
         if (!found)
             return false;
 
-        //is in range
-        std::cout<<"in range"<<std::endl;
 
         if (Board::IsInside(newposition)) {
 

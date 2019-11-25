@@ -39,7 +39,7 @@ public:
 
     bool IsWindowOppened() const;
 
-    bool IsMousePressed() const;
+    bool IsMousePressed(int index) const;
 
     void DrawBoard(const Chess::Board &board);
 

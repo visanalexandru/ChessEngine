@@ -11,7 +11,7 @@ int main() {
     while (gui.IsWindowOppened()) {
         gui.DrawBoard(game.GetBoard());
 
-        if (gui.IsMousePressed()) {
+        if (gui.IsMousePressed(0)) {
 
             Vector2 pos = gui.GetMousePosition();
             if (controlling->CanMove(pos, game.GetBoard())) {

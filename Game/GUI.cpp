@@ -112,6 +112,10 @@ bool GUI::IsWindowOppened() const {
     return window.isOpen();
 }
 
-bool GUI::IsMousePressed() const {
-    return sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
+bool GUI::IsMousePressed(int index) const {
+    if (index == 0)
+        return sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
+    else if (index == 1) {
+        return sf::Mouse::isButtonPressed(sf::Mouse::Button::Right);
+    }
 }
