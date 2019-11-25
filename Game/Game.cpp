@@ -26,7 +26,7 @@ namespace Chess {
 
 
         Knight *black_knight2 = new Knight(Vector2(6, 0), PieceColor::black);
-        gameboard.SetPieceAt(Vector2(6, 0), black_knight1);
+        gameboard.SetPieceAt(Vector2(6, 0), black_knight2);
         pieces.push_back(black_knight2);
 
         Knight *white_knight1 = new Knight(Vector2(1, 7), PieceColor::white);

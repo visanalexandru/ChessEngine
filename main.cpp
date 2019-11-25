@@ -19,6 +19,9 @@ int main() {
             }
             std::cout << gui.GetMousePosition().x << " " << gui.GetMousePosition().y << std::endl;
 
+        } else if (gui.IsMousePressed(1)) {
+            if (game.GetBoard().GetPieceAt(gui.GetMousePosition()) != nullptr)
+                controlling = game.GetBoard().GetPieceAt(gui.GetMousePosition());
         }
 
     }

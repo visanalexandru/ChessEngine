@@ -23,6 +23,11 @@ namespace Chess {
             offset = 1;
         }
 
+        if (!has_moved && newposition.y == current_position.y + offset * 2 && newposition.x == current_position.x) {
+            return board.GetPieceAt(current_position + Vector2(0, offset)) == nullptr &&
+                   board.GetPieceAt(newposition) == nullptr;
+        }
+
 
         if (newposition.y == current_position.y + offset) {
 
