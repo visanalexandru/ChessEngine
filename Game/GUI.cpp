@@ -108,7 +108,7 @@ Vector2 GUI::GetMousePosition() const {
 
 }
 
-bool GUI::IsWindowOppened() const {
+bool GUI::IsWindowOpened() const {
     return window.isOpen();
 }
 

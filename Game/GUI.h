@@ -37,7 +37,7 @@ public:
 
     Vector2 GetMousePosition() const;
 
-    bool IsWindowOppened() const;
+    bool IsWindowOpened() const;
 
     bool IsMousePressed(int index) const;
 

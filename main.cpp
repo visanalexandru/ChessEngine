@@ -8,7 +8,7 @@ int main() {
     Chess::Piece *controlling = game.GetBoard().GetPieceAt(Vector2(1, 0));
 
 
-    while (gui.IsWindowOppened()) {
+    while (gui.IsWindowOpened()) {
         gui.DrawBoard(game.GetBoard());
 
         if (gui.IsMousePressed(0)) {
