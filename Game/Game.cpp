@@ -60,6 +60,25 @@ namespace Chess {
         gameboard.SetPieceAt(Vector2(7, 7), white_rook2);
         pieces.push_back(white_rook2);
 
+
+        //BISHOPS
+        Bishop *black_bishop1 = new Bishop(Vector2(2, 0), PieceColor::black);
+        gameboard.SetPieceAt(Vector2(2, 0), black_bishop1);
+        pieces.push_back(black_bishop1);
+
+        Bishop *black_bishop2 = new Bishop(Vector2(5, 0), PieceColor::black);
+        gameboard.SetPieceAt(Vector2(5, 0), black_bishop2);
+        pieces.push_back(black_bishop2);
+
+        Bishop *white_bishop1 = new Bishop(Vector2(2, 7), PieceColor::white);
+        gameboard.SetPieceAt(Vector2(2, 7), white_bishop1);
+        pieces.push_back(white_bishop1);
+
+        Bishop *white_bishop2 = new Bishop(Vector2(5, 7), PieceColor::white);
+        gameboard.SetPieceAt(Vector2(5, 7), white_bishop2);
+        pieces.push_back(white_bishop2);
+
+
     }
 
     Game::Game() {
