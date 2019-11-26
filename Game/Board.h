@@ -21,6 +21,8 @@ namespace Chess {
 
         static bool IsInside(Vector2 position);
 
+        Piece *CastRay(Vector2 starting, Vector2 ending, Vector2 offset) const;
+
         Board();
     };
 }

@@ -24,6 +24,26 @@ namespace Chess {
         board[position.y][position.x] = to_set;
     }
 
+    Piece *Board::CastRay(Vector2 starting, Vector2 ending, Vector2 offset) const {
+        if (!IsInside(starting) || !IsInside(ending))
+            return nullptr;
+
+        if (starting == ending)
+            return GetPieceAt(starting);
+
+
+        Piece *here;
+        Vector2 position_here = starting;
+        do {
+            position_here = position_here + offset;
+            here = GetPieceAt(position_here);
+        } while (here == nullptr && position_here != ending);
+
+        return here;
+
+    }
+
+
     Board::Board() {
         for (int i = 0; i < 8; i++)
             for (int k = 0; k < 8; k++)

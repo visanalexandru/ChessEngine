@@ -8,6 +8,7 @@
 #include "Board.h"
 #include "../Piece/Pawn.h"
 #include "../Piece/Knight.h"
+#include "../Piece/Rook.h"
 #include <vector>
 
 namespace Chess {
