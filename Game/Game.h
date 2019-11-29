@@ -10,6 +10,7 @@
 #include "../Piece/Knight.h"
 #include "../Piece/Rook.h"
 #include "../Piece/Bishop.h"
+#include "../Piece/Queen.h"
 #include <vector>
 
 namespace Chess {
