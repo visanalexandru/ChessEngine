@@ -26,3 +26,7 @@ Vector2 Vector2::operator+(const Vector2 &other) const {
     return Vector2(x + other.x, y + other.y);
 
 }
+
+int Vector2::GetLength() const {
+    return sqrt(x * x + y * y);
+}

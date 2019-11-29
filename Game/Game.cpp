@@ -86,6 +86,13 @@ namespace Chess {
         Queen *white_queen = new Queen(Vector2(3, 7), PieceColor::white);
         gameboard.SetPieceAt(Vector2(3, 7), white_queen);
 
+        //KINGS
+        King *black_king = new King(Vector2(4, 0), PieceColor::black);
+        gameboard.SetPieceAt(Vector2(4, 0), black_king);
+
+        King *white_king = new King(Vector2(4, 7), PieceColor::white);
+        gameboard.SetPieceAt(Vector2(4, 7), white_king);
+
 
     }
 

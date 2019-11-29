@@ -11,6 +11,7 @@
 #include "../Piece/Rook.h"
 #include "../Piece/Bishop.h"
 #include "../Piece/Queen.h"
+#include "../Piece/King.h"
 #include <vector>
 
 namespace Chess {

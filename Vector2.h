@@ -5,13 +5,14 @@
 #ifndef CHESS_VECTOR2_H
 #define CHESS_VECTOR2_H
 
-#include <string>
-
+#include <cmath>
 class Vector2 {
 public:
     int x, y;
 
     Vector2(int xpos, int ypos);
+
+    int GetLength() const;
 
     bool operator==(const Vector2 &other) const;
 
