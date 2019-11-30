@@ -32,6 +32,8 @@ namespace Chess {
 
         bool is_in_check(PieceColor side) const;
 
+        bool IsMoveLegal(Vector2 starting, Vector2 ending, PieceColor side);
+
         Board &GetBoard();
     };
 }

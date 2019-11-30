@@ -128,6 +128,35 @@ namespace Chess {
 
     }
 
+
+    bool Game::IsMoveLegal(Vector2 starting, Vector2 ending, Chess::PieceColor side) {
+
+        if (!Board::IsInside(starting) || !Board::IsInside(ending))
+            return false;
+
+        Piece *selected = gameboard.GetPieceAt(starting);
+        if (selected == nullptr || selected->GetColor() != side || !selected->CanMove(ending, gameboard))
+            return false;
+
+        gameboard.SetPieceAt(starting, nullptr);
+        Piece *aux = gameboard.GetPieceAt(ending);
+        gameboard.SetPieceAt(ending, selected);
+        selected->current_position = ending;
+
+        bool is_legal = true;
+        if (is_in_check(side)) {
+            is_legal = false;
+
+        }
+
+        gameboard.SetPieceAt(starting, selected);
+        selected->current_position = starting;
+        gameboard.SetPieceAt(ending, aux);
+
+        return is_legal;
+
+    }
+
     Game::Game() {
         initialize_classic_board();
     }

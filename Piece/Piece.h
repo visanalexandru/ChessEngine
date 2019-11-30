@@ -59,6 +59,8 @@ namespace Chess {
         bool has_moved;
 
 
+        friend class Game;
+
     };
 }
 
