@@ -18,6 +18,9 @@ namespace Chess {
     class Game {
     private:
         Board gameboard;
+
+        King *black_king_piece, *white_king_piece;
+
         std::vector<Chess::Piece *> pieces;
 
         void initialize_classic_board();
