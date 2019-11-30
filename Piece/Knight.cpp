@@ -48,4 +48,9 @@ namespace Chess {
     }
 
 
+    int Knight::GetPieceValue() const {
+        return 3;
+    }
+
+
 }

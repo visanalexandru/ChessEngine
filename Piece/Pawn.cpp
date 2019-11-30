@@ -54,4 +54,8 @@ namespace Chess {
         return PieceType::blackPawn;
     }
 
+    int Pawn::GetPieceValue() const {
+        return 1;
+    }
+
 }

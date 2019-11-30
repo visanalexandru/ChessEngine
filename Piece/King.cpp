@@ -26,4 +26,8 @@ namespace Chess {
             return PieceType::whiteKing;
         return PieceType::blackKing;
     }
+
+    int King::GetPieceValue() const {
+        return 0;
+    }
 }

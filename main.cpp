@@ -23,6 +23,8 @@ int main() {
             if (game.GetBoard().GetPieceAt(gui.GetMousePosition()) != nullptr)
                 controlling = game.GetBoard().GetPieceAt(gui.GetMousePosition());
         }
+        std::cout << "white in check: " << game.is_in_check(Chess::PieceColor::white) << " black in check "
+                  << game.is_in_check(Chess::PieceColor::black) << std::endl;
 
     }
     return 0;

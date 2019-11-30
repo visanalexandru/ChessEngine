@@ -49,6 +49,8 @@ namespace Chess {
 
         virtual PieceType GetPieceType() const = 0;
 
+        virtual int GetPieceValue() const = 0;
+
         Vector2 GetPosition() const;
 
     protected:

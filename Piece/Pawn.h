@@ -16,6 +16,9 @@ namespace Chess {
         bool CanMove(Vector2 newposition, const Board &board) const override;
 
         PieceType GetPieceType() const override;
+
+        int GetPieceValue() const override;
+
     };
 }
 

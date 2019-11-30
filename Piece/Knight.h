@@ -20,6 +20,8 @@ namespace Chess {
 
         PieceType GetPieceType() const override;
 
+        int GetPieceValue() const override;
+
     };
 }
 

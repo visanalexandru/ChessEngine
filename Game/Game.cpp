@@ -101,6 +101,33 @@ namespace Chess {
 
     }
 
+    bool Game::is_in_check(Chess::PieceColor side) const {
+        PieceColor other_side;
+        King *to_check;
+
+        if (side == PieceColor::white) {
+            other_side = PieceColor::black;
+            to_check = white_king_piece;
+        } else {
+            other_side = PieceColor::white;
+            to_check = black_king_piece;
+        }
+
+        for (int i = 0; i < 8; i++) {
+            for (int k = 0; k < 8; k++) {
+                Piece *pointing = gameboard.GetPieceAt(Vector2(i, k));
+
+
+                if (pointing != nullptr && pointing->GetColor() == other_side &&
+                    pointing->CanMove(to_check->GetPosition(), gameboard))
+                    return true;
+            }
+        }
+
+        return false;
+
+    }
+
     Game::Game() {
         initialize_classic_board();
     }

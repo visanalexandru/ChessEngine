@@ -46,5 +46,9 @@ namespace Chess {
         return PieceType::whiteRook;
     }
 
+    int Rook::GetPieceValue() const {
+        return 5;
+    }
+
 
 }

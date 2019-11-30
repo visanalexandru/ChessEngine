@@ -29,9 +29,7 @@ namespace Chess {
 
             return threatening == nullptr ||
                    (threatening->GetPosition() == newposition && threatening->GetColor() == GetOpositeColor());
-        }
-
-        else if (offset.x == 0 || offset.y == 0) {
+        } else if (offset.x == 0 || offset.y == 0) {
 
             Piece *hit;
             int normalized_offset;
@@ -58,5 +56,9 @@ namespace Chess {
         return PieceType::blackQueen;
     }
 
+
+    int Queen::GetPieceValue() const {
+        return 9;
+    }
 
 }

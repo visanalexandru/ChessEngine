@@ -41,4 +41,8 @@ namespace Chess {
             return PieceType::whiteBishop;
         return PieceType::blackBishop;
     }
+
+    int Bishop::GetPieceValue() const {
+        return 3;
+    }
 }

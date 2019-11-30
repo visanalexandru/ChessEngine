@@ -30,6 +30,8 @@ namespace Chess {
 
         ~Game();
 
+        bool is_in_check(PieceColor side) const;
+
         Board &GetBoard();
     };
 }
