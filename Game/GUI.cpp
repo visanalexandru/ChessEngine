@@ -114,6 +114,18 @@ Vector2 GUI::GetMousePosition() const {
 
 }
 
+void GUI::HighlightSquare(Vector2 position, sf::Color color) {
+    int square_index = (position.y * 8 + position.x) * 4;
+    grid[square_index].color = color;
+    grid[square_index + 1].color = color;
+    grid[square_index + 2].color = color;
+    grid[square_index + 3].color = color;
+}
+
+void GUI::ClearHighlights() {
+    create_grid();
+}
+
 bool GUI::IsWindowOpened() const {
     return window.isOpen();
 }

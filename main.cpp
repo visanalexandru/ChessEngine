@@ -28,11 +28,26 @@ int main() {
                 controlling->Move(pos, game.GetBoard());
                 side = GetOpposite(side);
                 controlling = nullptr;
+                gui.ClearHighlights();
             }
 
 
         } else if (gui.IsMousePressed(1)) {
             controlling = game.GetBoard().GetPieceAt(gui.GetMousePosition());
+            gui.ClearHighlights();
+
+            if (controlling != nullptr) {
+                std::vector<Chess::Move> moves = game.GetLegalMovesFor(controlling);
+
+                for (Chess::Move &move :moves) {
+                    gui.HighlightSquare(move.GetEnding(), sf::Color::Blue);
+                }
+                gui.HighlightSquare(controlling->GetPosition(), sf::Color::Red);
+
+
+            }
+
+
         }
 
         if (side == Chess::PieceColor::white) {

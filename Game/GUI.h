@@ -47,6 +47,10 @@ public:
 
     void DrawBoard(const Chess::Board &board);
 
+    void HighlightSquare(Vector2 position,sf::Color color);
+
+    void ClearHighlights();
+
 
 };
 
