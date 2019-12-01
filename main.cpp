@@ -39,7 +39,7 @@ int main() {
 
     GUI gui(500);
     PieceColor player_side = PieceColor::white;
-    ChessSolver ai(game, Game::GetOpositeColor(player_side), 2);
+    ChessSolver ai(game, Game::GetOpositeColor(player_side), 3);
 
 
     while (gui.IsWindowOpened()) {

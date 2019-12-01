@@ -10,17 +10,23 @@
 namespace Chess {
     class ChessSolver {
     private:
+        struct MoveData {
+            Move move;
+            int score;
+            int depth_of_move;
+
+        };
         Game &game;
         const int depth_of_search;
         const PieceColor side;
 
         static int random_between(int min, int max);
 
-        std::pair<Move, int> minmax(int current_depth, PieceColor turn_side);
+        MoveData minmax(int current_depth, PieceColor turn_side);
 
-        std::pair<Move, int> maximize(int current_depth, PieceColor turn_side);
+        MoveData maximize(int current_depth, PieceColor turn_side);
 
-        std::pair<Move, int> minimize(int current_depth, PieceColor turn_side);
+        MoveData minimize(int current_depth, PieceColor turn_side);
 
         int get_score();
 
