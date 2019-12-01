@@ -61,6 +61,8 @@ namespace Chess {
 
         friend class Game;
 
+        friend class ChessSolver;
+
     };
 }
 

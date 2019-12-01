@@ -7,21 +7,29 @@
 
 #include "Game.h"
 
-class ChessSolver {
-private:
-    Chess::Game &game;
-    const int depth_of_search;
-    const Chess::PieceColor side;
+namespace Chess {
+    class ChessSolver {
+    private:
+        Game &game;
+        const int depth_of_search;
+        const PieceColor side;
 
-    static int random_between(int min, int max);
+        static int random_between(int min, int max);
 
+        std::pair<Move, int> minmax(int current_depth, PieceColor turn_side);
 
-public:
-    ChessSolver(Chess::Game &chess_game, Chess::PieceColor side_color, int depth);
+        std::pair<Move, int> maximize(int current_depth, PieceColor turn_side);
 
-    Chess::Move GetBestMove();
+        std::pair<Move, int> minimize(int current_depth, PieceColor turn_side);
 
-};
+        int get_score();
 
+    public:
+        ChessSolver(Game &chess_game, PieceColor side_color, int depth);
+
+        Chess::Move GetBestMove();
+
+    };
+}
 
 #endif //CHESS_CHESSSOLVER_H
