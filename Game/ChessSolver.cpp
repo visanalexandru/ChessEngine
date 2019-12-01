@@ -54,6 +54,8 @@ namespace Chess {
             }
 
         }
+        if (highest_score == -999999)
+            highest_score = 0;//stalemate
 
         return {to_return, highest_score};
     }
@@ -85,6 +87,8 @@ namespace Chess {
                 to_return = a;
             }
         }
+        if (lowest_score == 999999)
+            lowest_score = 0;//stalemate
 
         return {to_return, lowest_score};
     }
@@ -96,11 +100,11 @@ namespace Chess {
     std::pair<Move, int> ChessSolver::minmax(int current_depth, PieceColor turn_side) {
         Move empty_move(Vector2(0, 0), Vector2(0, 0));
 
-        if (game.Checkmate(turn_side)) {
-            if (turn_side == side)
-                return {empty_move, -99999};
-            return {empty_move, 99999};
+        if (game.Checkmate(side)) {
+            return {empty_move, -99999};
         }
+        if (game.Checkmate(Game::GetOpositeColor(side)))
+            return {empty_move, 99999};
 
         if (current_depth == depth_of_search) {
             return {empty_move, get_score()};
