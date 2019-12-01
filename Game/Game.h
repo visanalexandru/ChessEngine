@@ -6,6 +6,7 @@
 #define CHESS_GAME_H
 
 #include "Board.h"
+#include "Move.h"
 #include "../Piece/Pawn.h"
 #include "../Piece/Knight.h"
 #include "../Piece/Rook.h"
@@ -32,7 +33,7 @@ namespace Chess {
 
         bool is_in_check(PieceColor side) const;
 
-        bool IsMoveLegal(Vector2 starting, Vector2 ending, PieceColor side);
+        bool IsMoveLegal(Move move, PieceColor side);
 
         Board &GetBoard();
     };

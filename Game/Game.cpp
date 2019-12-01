@@ -129,7 +129,10 @@ namespace Chess {
     }
 
 
-    bool Game::IsMoveLegal(Vector2 starting, Vector2 ending, Chess::PieceColor side) {
+    bool Game::IsMoveLegal(Move move, Chess::PieceColor side) {
+
+        Vector2 starting = move.GetStarting();
+        Vector2 ending = move.GetEnding();
 
         if (!Board::IsInside(starting) || !Board::IsInside(ending))
             return false;

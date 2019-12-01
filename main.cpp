@@ -24,7 +24,7 @@ int main() {
         if (gui.IsMousePressed(0) && controlling != nullptr) {
 
             Vector2 pos = gui.GetMousePosition();
-            if (game.IsMoveLegal(controlling->GetPosition(), pos, side)) {
+            if (game.IsMoveLegal(Chess::Move(controlling->GetPosition(), pos), side)) {
                 controlling->Move(pos, game.GetBoard());
                 side = GetOpposite(side);
                 controlling = nullptr;
