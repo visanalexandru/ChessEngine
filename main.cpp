@@ -3,24 +3,20 @@
 #include "Game/GUI.h"
 #include "Game/ChessSolver.h"
 
-Chess::PieceColor GetOpposite(Chess::PieceColor color) {
-    if (color == Chess::PieceColor::white)
-        return Chess::PieceColor::black;
-    return Chess::PieceColor::white;
-}
+using namespace Chess;
 
-Chess::Piece *controlling = nullptr;
-Chess::PieceColor side = Chess::PieceColor::white;
-Chess::Game game;
+Piece *controlling = nullptr;
+PieceColor side = PieceColor::white;
+Game game;
 
 void PlayerInput(GUI &gui) {
 
     if (gui.IsMousePressed(0) && controlling != nullptr) {
 
         Vector2 pos = gui.GetMousePosition();
-        if (game.IsMoveLegal(Chess::Move(controlling->GetPosition(), pos), side)) {
+        if (game.IsMoveLegal(Move(controlling->GetPosition(), pos), side)) {
             controlling->Move(pos, game.GetBoard());
-            side = GetOpposite(side);
+            side = Game::GetOpositeColor(side);
             controlling = nullptr;
             gui.ClearHighlights();
         }
@@ -29,9 +25,9 @@ void PlayerInput(GUI &gui) {
         gui.ClearHighlights();
 
         if (controlling != nullptr) {
-            std::vector<Chess::Move> moves = game.GetLegalMovesFor(controlling);
+            std::vector<Move> moves = game.GetLegalMovesFor(controlling);
 
-            for (Chess::Move &move :moves) {
+            for (Move &move :moves) {
                 gui.HighlightSquare(move.GetEnding(), sf::Color::Blue);
             }
             gui.HighlightSquare(controlling->GetPosition(), sf::Color::Red);
@@ -42,8 +38,8 @@ void PlayerInput(GUI &gui) {
 int main() {
 
     GUI gui(500);
-    Chess::PieceColor player_side = Chess::PieceColor::white;
-    ChessSolver ai(game, GetOpposite(player_side), 2);
+    PieceColor player_side = PieceColor::white;
+    ChessSolver ai(game, Game::GetOpositeColor(player_side), 2);
 
 
     while (gui.IsWindowOpened()) {
@@ -53,19 +49,19 @@ int main() {
             PlayerInput(gui);
         else {
             game.MakeMove(ai.GetBestMove());
-            side = GetOpposite(side);
+            side = Game::GetOpositeColor(side);
         }
 
-        if (game.Checkmate(Chess::PieceColor::white)) {
+        if (game.Checkmate(PieceColor::white)) {
             std::cout << "black wins" << std::endl;
             break;
         }
-        if (game.Checkmate(Chess::PieceColor::black)) {
+        if (game.Checkmate(PieceColor::black)) {
             std::cout << "white wins" << std::endl;
             break;
         }
-        if (game.GetAllLegalMovesFor(Chess::PieceColor::white).size() == 0 ||
-            game.GetAllLegalMovesFor(Chess::PieceColor::black).size() == 0) {
+        if (game.GetAllLegalMovesFor(PieceColor::white).size() == 0 ||
+            game.GetAllLegalMovesFor(PieceColor::black).size() == 0) {
             std::cout << "stalemate" << std::endl;
             break;
         }

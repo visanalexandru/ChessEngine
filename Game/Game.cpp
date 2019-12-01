@@ -229,6 +229,12 @@ namespace Chess {
             delete piece;
     }
 
+    PieceColor Game::GetOpositeColor(Chess::PieceColor color) {
+        if (color == Chess::PieceColor::white)
+            return Chess::PieceColor::black;
+        return Chess::PieceColor::white;
+    }
+
     Board &Game::GetBoard() {
         return gameboard;
     }

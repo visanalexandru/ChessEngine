@@ -46,6 +46,8 @@ namespace Chess {
 
         bool IsMoveLegal(Move move, PieceColor side);
 
+        static PieceColor GetOpositeColor(PieceColor color);
+
         Board &GetBoard();
     };
 }
