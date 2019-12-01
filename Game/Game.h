@@ -31,6 +31,9 @@ namespace Chess {
 
         ~Game();
 
+
+        std::vector<Move> GetLegalMovesFor(Piece *piece);
+
         bool is_in_check(PieceColor side) const;
 
         bool IsMoveLegal(Move move, PieceColor side);

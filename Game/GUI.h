@@ -21,12 +21,16 @@ private:
 
     void draw_pieces(const Chess::Board &board);
 
+    void create_grid();
+
     std::vector<sf::Sprite> sprites;
 
     std::vector<sf::Texture *> textures;
     static const std::string names[12];
 
     sf::RenderWindow window;
+
+    sf::VertexArray grid;
 
     const float square_size;
 

@@ -160,6 +160,22 @@ namespace Chess {
 
     }
 
+    std::vector<Move> Game::GetLegalMovesFor(Chess::Piece *piece) {
+        std::vector<Move> to_return;
+        Vector2 initial = piece->GetPosition();
+
+        for (int i = 0; i < 8; i++) {
+            for (int k = 0; k < 8; k++) {
+                Vector2 destination(i, k);
+                Move to_check(initial, destination);
+                if (IsMoveLegal(to_check, piece->GetColor())) {
+                    to_return.push_back(to_check);
+                }
+            }
+        }
+        return to_return;
+    }
+
     Game::Game() {
         initialize_classic_board();
     }

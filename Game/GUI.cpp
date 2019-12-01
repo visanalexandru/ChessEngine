@@ -6,7 +6,8 @@
 #include "../Piece/Piece.h"
 
 GUI::GUI(int window_size) : square_size((float) window_size / 8.0f),
-                            window(sf::VideoMode(window_size, window_size), "Chess") {
+                            window(sf::VideoMode(window_size, window_size), "Chess"),
+                            grid(sf::Quads, 256) {
     initialize();
 }
 
@@ -38,6 +39,7 @@ void GUI::load_all_textures() {
 
 void GUI::initialize() {
     load_all_textures();
+    create_grid();
 }
 
 
@@ -50,24 +52,28 @@ void GUI::poll_events() {
     }
 }
 
-void GUI::draw_grid() {
-    sf::VertexArray quad(sf::Quads, 4);
-
+void GUI::create_grid() {
+    int square_index = 0;
     for (int i = 0; i < 8; i++) {
         for (int k = 0; k < 8; k++) {
-            quad[0].position = sf::Vector2f((float) k * square_size, (float) i * square_size);
-            quad[1].position = sf::Vector2f((float) (k + 1) * square_size, (float) i * square_size);
-            quad[2].position = sf::Vector2f((float) (k + 1) * square_size, (float) (i + 1) * square_size);
-            quad[3].position = sf::Vector2f((float) k * square_size, (float) (i + 1) * square_size);
+            grid[square_index].position = sf::Vector2f((float) k * square_size, (float) i * square_size);
+            grid[square_index + 1].position = sf::Vector2f((float) (k + 1) * square_size, (float) i * square_size);
+            grid[square_index + 2].position = sf::Vector2f((float) (k + 1) * square_size,
+                                                           (float) (i + 1) * square_size);
+            grid[square_index + 3].position = sf::Vector2f((float) k * square_size, (float) (i + 1) * square_size);
 
             for (int p = 0; p < 4; p++) {
                 if ((k + i) % 2) {
-                    quad[p].color = sf::Color(102, 51, 1);
-                } else quad[p].color = sf::Color::White;
+                    grid[square_index + p].color = sf::Color(102, 51, 1);
+                } else grid[square_index + p].color = sf::Color::White;
             }
-            window.draw(quad);
+            square_index += 4;
         }
     }
+}
+
+void GUI::draw_grid() {
+    window.draw(grid);
 }
 
 void GUI::draw_pieces(const Chess::Board &board) {
