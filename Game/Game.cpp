@@ -195,7 +195,7 @@ namespace Chess {
     void Game::MakeMove(Chess::Move move) {//this should be called after checking for legal move
 
         Piece *to_move = gameboard.GetPieceAt(move.GetStarting());
-        to_move->Move(move.GetEnding(),gameboard);
+        to_move->Move(move.GetEnding(), gameboard);
     }
 
     int Game::GetScoreFor(Chess::PieceColor side) const {
@@ -211,6 +211,13 @@ namespace Chess {
         }
         return result;
 
+    }
+
+    bool Game::Checkmate(Chess::PieceColor side) {
+
+        int number_of_legal_moves = GetAllLegalMovesFor(side).size();
+
+        return is_in_check(side) && number_of_legal_moves == 0;
     }
 
     Game::Game() {

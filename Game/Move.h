@@ -19,8 +19,8 @@ namespace Chess {
         Vector2 GetEnding() const;
 
     private:
-        const Vector2 to_move;
-        const Vector2 where;
+        Vector2 to_move;
+        Vector2 where;
 
 
     };

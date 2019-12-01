@@ -26,6 +26,8 @@ namespace Chess {
 
         void initialize_classic_board();
 
+        bool is_in_check(PieceColor side) const;
+
     public:
         Game();
 
@@ -38,9 +40,9 @@ namespace Chess {
 
         void MakeMove(Move move);
 
-        int GetScoreFor(PieceColor side) const;
+        bool Checkmate(PieceColor side);
 
-        bool is_in_check(PieceColor side) const;
+        int GetScoreFor(PieceColor side) const;
 
         bool IsMoveLegal(Move move, PieceColor side);
 

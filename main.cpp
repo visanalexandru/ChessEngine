@@ -51,9 +51,12 @@ int main() {
         }
 
         if (side == Chess::PieceColor::white) {
-            std::cout << "white moves" << std::endl;
-        } else std::cout << "black moves" << std::endl;
+            std::cout << "white moves" << " ";
+        } else std::cout << "black moves" << " ";
 
+
+        std::cout << "white in checkmate: " << game.Checkmate(Chess::PieceColor::white) << " "
+                  << "black in checkmate: " << game.Checkmate(Chess::PieceColor::black) << std::endl;
     }
     return 0;
 }
