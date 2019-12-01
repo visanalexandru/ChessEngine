@@ -176,6 +176,43 @@ namespace Chess {
         return to_return;
     }
 
+
+    std::vector<Move> Game::GetAllLegalMovesFor(Chess::PieceColor side) {
+        std::vector<Move> to_return;
+
+        for (int i = 0; i < 8; i++) {
+            for (int k = 0; k < 8; k++) {
+                Piece *there = gameboard.GetPieceAt(Vector2(i, k));
+                if (there != nullptr && there->GetColor() == side) {
+                    std::vector<Move> piece_moves = GetLegalMovesFor(there);
+                    to_return.insert(to_return.end(), piece_moves.begin(), piece_moves.end());
+                }
+            }
+        }
+        return to_return;
+    }
+
+    void Game::MakeMove(Chess::Move move) {//this should be called after checking for legal move
+
+        Piece *to_move = gameboard.GetPieceAt(move.GetStarting());
+        to_move->Move(move.GetEnding(),gameboard);
+    }
+
+    int Game::GetScoreFor(Chess::PieceColor side) const {
+        int result = 0;
+
+        for (int i = 0; i < 8; i++) {
+            for (int k = 0; k < 8; k++) {
+                Piece *pointing = gameboard.GetPieceAt(Vector2(i, k));
+                if (pointing != nullptr && pointing->GetColor() == side) {
+                    result += pointing->GetPieceValue();
+                }
+            }
+        }
+        return result;
+
+    }
+
     Game::Game() {
         initialize_classic_board();
     }

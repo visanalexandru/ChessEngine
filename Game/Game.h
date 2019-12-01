@@ -34,6 +34,12 @@ namespace Chess {
 
         std::vector<Move> GetLegalMovesFor(Piece *piece);
 
+        std::vector<Move> GetAllLegalMovesFor(PieceColor side);
+
+        void MakeMove(Move move);
+
+        int GetScoreFor(PieceColor side) const;
+
         bool is_in_check(PieceColor side) const;
 
         bool IsMoveLegal(Move move, PieceColor side);
